@@ -3,7 +3,7 @@ const Promise = require('bluebird');
 module.exports = async function(collection) {
   const c = await collection;
   if (!c.findOneAsync) Promise.promisifyAll(c);
-  await c.ensureIndex({
+  await c.createIndex({
     key: 1,
     updated: 1
   },{
